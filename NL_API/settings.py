@@ -87,10 +87,9 @@ WSGI_APPLICATION = 'NL_API.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': dj_database_url.parse('postgres://...', conn_max_age=600)
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -126,14 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-STATICFILES_DIR = (
-    os.path.join(BASE_DIR, 'static')
-)
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressManifestStaticFilesStorage'
 
 GRAPHENE = {
     'SCHEMA': 'NL_API.schema.schema',
