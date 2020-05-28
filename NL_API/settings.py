@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'NL_API.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://...', conn_max_age=600)
+    'default': dj_database_url.config()
 }
 
 
