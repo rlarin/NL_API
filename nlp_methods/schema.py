@@ -4,6 +4,7 @@ from nlp_methods.mutations.classes.tokenizers.sentences_tokenizer import Sentenc
 from nlp_methods.mutations.classes.tokenizers.regexp_tokenizer import RegexpTokenizer
 from nlp_methods.mutations.classes.topics.topics_modelling import TopicsModelling
 from nlp_methods.mutations.classes.sentiment.sentiment_analysis import SentimentAnalysis
+from nlp_methods.mutations.classes.translation.language_detection_translation import LanguageDetectionTranslation
 
 
 class Mutation(graphene.ObjectType):
@@ -12,6 +13,7 @@ class Mutation(graphene.ObjectType):
     regexp_tokenizer = RegexpTokenizer.Field()
     topics_modelling = TopicsModelling.Field()
     sentiment_analysis = SentimentAnalysis.Field()
+    language_detection_translation = LanguageDetectionTranslation.Field()
 
 
 class Query(graphene.ObjectType):
