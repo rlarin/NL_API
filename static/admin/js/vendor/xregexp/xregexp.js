@@ -60,7 +60,7 @@ XRegExp = XRegExp || (function (undef) {
 
 // Regexes that match native regex syntax
         nativeTokens = {
-            // Any native multicharacter token in default scope (includes octals, excludes character classes)
+            // Any native multicharacter token in default scope (includes octals, excludes character packages)
             "default": /^(?:\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9]\d*|x[\dA-Fa-f]{2}|u[\dA-Fa-f]{4}|c[A-Za-z]|[\s\S])|\(\?[:=!]|[?*+]\?|{\d+(?:,\d*)?}\??)/,
             // Any native multicharacter token in character class scope (includes octals)
             "class": /^(?:\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[\dA-Fa-f]{2}|u[\dA-Fa-f]{4}|c[A-Za-z]|[\s\S]))/
@@ -357,7 +357,7 @@ XRegExp = XRegExp || (function (undef) {
                 output.push(tokenResult.output);
                 pos += (tokenResult.match[0].length || 1);
             } else {
-                // Check for native tokens (except character classes) at the current position
+                // Check for native tokens (except character packages) at the current position
                 match = nativ.exec.call(nativeTokens[scope], pattern.slice(pos));
                 if (match) {
                     output.push(match[0]);
@@ -2089,7 +2089,7 @@ XRegExp = XRegExp || (function (undef) {
  * @memberOf XRegExp
  * @param {String} pattern XRegExp pattern using `{{name}}` for embedded subpatterns. Allows
  *   `({{name}})` as shorthand for `(?<name>{{name}})`. Patterns cannot be embedded within
- *   character classes.
+ *   character packages.
  * @param {Object} subs Lookup object for named subpatterns. Values can be strings or regexes. A
  *   leading `^` and trailing unescaped `$` are stripped from subpatterns, if both are present.
  * @param {String} [flags] Any combination of XRegExp flags.
