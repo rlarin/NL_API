@@ -1,9 +1,11 @@
 import graphene
 import graphql_jwt
 import users.schema
+import nlp_methods.schema
 
 
 class Query(
+    nlp_methods.schema.Query,
     users.schema.Query,
     graphene.ObjectType
 ):
@@ -12,6 +14,7 @@ class Query(
 
 class Mutation(
     users.schema.Mutation,
+    nlp_methods.schema.Mutation,
 
     graphene.ObjectType
 ):
