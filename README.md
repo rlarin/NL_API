@@ -1,4 +1,4 @@
-# NL_API
+# NLP_API
 
 ## NLP GraphQL API
 
